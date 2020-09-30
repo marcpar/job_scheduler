@@ -1,0 +1,37 @@
+{
+  "name": "nodescheduler",
+  "version": "1.0.0",
+  "description": "scheduler for node",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\"",
+    "format": "prettier --write 'src/**/*ts'",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:test": "tslint -c tslint.json 'spec/**/*.ts'",
+    "format:test": "prettier --write 'spec/**/*ts'"
+  },
+  "dependencies": {
+    "@ladjs/graceful": "^1.0.4",
+    "bree": "^3.3.0",
+    "cabin": "^8.0.7",
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "figlet": "^1.5.0",
+    "signale": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.2.0",
+    "concurrently": "^5.3.0",
+    "nodemon": "^1.17.4",
+    "prettier": "^1.18.2",
+    "sinon": "^5.0.7",
+    "ts-node": "^6.0.3",
+    "tslint": "^5.18.0",
+    "typescript": "^2.4.1"
+  }
+}
