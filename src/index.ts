@@ -1,10 +1,9 @@
 import chalk from "chalk";
 import figlet from "figlet";
-import envlist from "./config/env";
 import express from "express";
 
-
-
+import envlist from "./config/env";
+import bree from "./bree";
 
 //BANNER
 console.log(
@@ -15,12 +14,37 @@ console.log(
 
 
 const app = express();
-
+bree.start();
 
 app.get("/", (req, res) => {
-    // render the index template
+    console.log(bree);
+
     res.json("test");
 });
+
+app.get("/add", (req, res) => {
+    // render the index template
+    console.info("adding");
+    bree.add({
+        name: "boop", path: "./jobs/sendSms.js", interval: "2s", worker: {
+            workerData: {
+                mall: 'dynamic mall'
+            }
+        }
+    });
+    bree.start();
+    res.json("test");
+});
+
+app.get("/remove", (req, res) => {
+    // render the index template
+    console.info("removing");
+    bree.remove("boop")
+    bree.start();
+    res.json("test");
+});
+
+
 
 // start the express server
 app.listen(envlist.parsed.PORT, () => {
